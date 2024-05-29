@@ -1,7 +1,7 @@
 import reactImg from "./assets/react-core-concepts.png";
 import componentImg from "./assets/components.png";
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-
+import { CORE_CONCEPTS } from "./data";
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
 }
@@ -33,6 +33,17 @@ function CoreConcept(props) {
     </li>
   );
 }
+
+function CoreConceptDestruct({ image, title, description }) {
+  return (
+    <li>
+      <img src={image} alt="..." />
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <p>While desctructoring make sure the keys names are matching</p>
+    </li>
+  );
+}
 function App() {
   return (
     <div>
@@ -54,10 +65,12 @@ function App() {
           <h2>Core Concepts</h2>
           <ul>
             <CoreConcept
-              title="Components"
-              description="Description"
-              image={componentImg}
+              title={CORE_CONCEPTS[0].title}
+              description={CORE_CONCEPTS[0].description}
+              image={CORE_CONCEPTS[0].image}
             />
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConceptDestruct {...CORE_CONCEPTS[2]} />
           </ul>
         </section>
       </main>
