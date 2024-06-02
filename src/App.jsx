@@ -1,49 +1,15 @@
 import reactImg from "./assets/react-core-concepts.png";
 import componentImg from "./assets/components.png";
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
+import Header from "./components/Header";
+import CoreConcept from "./components/CoreConcept";
+import CoreConceptDestruct from "./components/CoreConceptDestruct";
+
 import { CORE_CONCEPTS } from "./data";
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
 }
 
-function Header() {
-  const desc = reactDescriptions[genRandomInt(2)];
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>We use curly braces to output dynamic values</p>
-
-      <p>
-        {desc} React concepts you will need for almost any app you are going to
-        build!
-      </p>
-      <p>We have created a new component header</p>
-    </header>
-  );
-}
-
-function CoreConcept(props) {
-  return (
-    <li>
-      <img src={props.image} alt="..." />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-      <p>Props is set by react we just send all the values</p>
-    </li>
-  );
-}
-
-function CoreConceptDestruct({ image, title, description }) {
-  return (
-    <li>
-      <img src={image} alt="..." />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <p>While desctructoring make sure the keys names are matching</p>
-    </li>
-  );
-}
 function App() {
   return (
     <div>
