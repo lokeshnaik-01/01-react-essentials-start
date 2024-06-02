@@ -7,3 +7,6 @@
 - we can set props("custom attributes") on components to then extract and use them in the receiving component
 - we use props to send values to a functions and these values are sent as a key value pair
 - if we want to create multiple components with same component structure this can be used
+
+## Components
+- We can use styling for a particular component and can import that into the jsx file check `Header.css` in components
