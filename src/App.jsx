@@ -11,6 +11,9 @@ function genRandomInt(max) {
 }
 
 function App() {
+  function handleSelect(selectedButton) {
+    console.log("Hello world updated " + selectedButton);
+  }
   return (
     <div>
       <Header></Header>
@@ -44,11 +47,15 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            {/* if we want to define a function which needs to be executed upon an event but also want to control how it's going to be called and which args are goinf to be passed*/}
+            <TabButton onSelect={() => handleSelect("components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={handleSelect}>Props</TabButton>
+            <TabButton onSelect={handleSelect}>State</TabButton>
             {/*
+            children will receive what ever passed between the component Tag
             <TabButton>
               This text is not shown in UI as react will not know where to
               display this so we use props
