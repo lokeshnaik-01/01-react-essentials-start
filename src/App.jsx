@@ -1,18 +1,25 @@
 import reactImg from "./assets/react-core-concepts.png";
 import componentImg from "./assets/components.png";
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
+import { useState } from "react";
 import Header from "./components/Header";
 import CoreConcept from "./components/CoreConcept";
 import CoreConceptDestruct from "./components/CoreConceptDestruct";
 import TabButton from "./components/TabButton";
 import { CORE_CONCEPTS } from "./data";
+import { EXAMPLES } from "./data";
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
 }
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState("components");
+  let tabContent = "please select";
   function handleSelect(selectedButton) {
-    console.log("Hello world updated " + selectedButton);
+    console.log(selectedButton);
+    setSelectedTopic(selectedButton);
+    console.log(selectedTopic);
+    // tabContent = selectedButton;
   }
   return (
     <div>
@@ -52,9 +59,10 @@ function App() {
               Components
             </TabButton>
             <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={handleSelect}>Props</TabButton>
-            <TabButton onSelect={handleSelect}>State</TabButton>
+            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
             {/*
+            <TabButton onSelect={handleSelect}>State</TabButton>
             children will receive what ever passed between the component Tag
             <TabButton>
               This text is not shown in UI as react will not know where to
@@ -66,6 +74,14 @@ function App() {
             </TabButton>
             */}
           </menu>
+          {/*tabContent*/}
+          <div id="tab-content">
+            <h3>{EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>

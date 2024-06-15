@@ -11,3 +11,11 @@
 
 ## Components
 - We can use styling for a particular component and can import that into the jsx file check `Header.css` in components
+- By default, react components execute only once
+- when some content changes in a component we need to tell react it needs to be executed again
+
+## State
+- tells react data changed and react updates UI.
+- useState needs to be imported
+- only call Hooks inside of Component Functions
+- Only call Hooks on top level
