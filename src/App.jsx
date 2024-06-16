@@ -14,7 +14,20 @@ function genRandomInt(max) {
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
-  let tabContent = "please select";
+  //let tabContent = "please select";
+  let tabContent = <p>Please select a topic.</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
+  }
   function handleSelect(selectedButton) {
     console.log(selectedButton);
     setSelectedTopic(selectedButton);
@@ -97,9 +110,9 @@ function App() {
             </TabButton>
             */}
           </menu>
-          {/*tabContent*/}
+          {tabContent}
 
-          {!selectedTopic ? <p> Please select a topic.</p> : null}
+          {/*{!selectedTopic ? <p> Please select a topic.</p> : null}
 
           {selectedTopic && (
             <div id="tab-content">
@@ -109,7 +122,7 @@ function App() {
                 <code>{EXAMPLES[selectedTopic].code}</code>
               </pre>
             </div>
-          )}
+          )}*/}
         </section>
       </main>
     </div>
