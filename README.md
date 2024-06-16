@@ -19,3 +19,7 @@
 - useState needs to be imported
 - only call Hooks inside of Component Functions
 - Only call Hooks on top level
+## Important notes
+- JSX should return one signal element we can't return two sibling elements like two tags p, menu. because we can only return 1 value.
+- we can wrap those both inside a div tag but in inspect a new div tag shows.
+- we can use `Fragment` to avoid this extra div or we can also return empty tag as well like `<>JSX</>`.

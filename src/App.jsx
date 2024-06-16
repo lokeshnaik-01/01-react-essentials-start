@@ -1,7 +1,7 @@
 import reactImg from "./assets/react-core-concepts.png";
 import componentImg from "./assets/components.png";
 const reactDescriptions = ["Fundamental", "Crucial", "Core"];
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import Header from "./components/Header";
 import CoreConcept from "./components/CoreConcept";
 import CoreConceptDestruct from "./components/CoreConceptDestruct";
@@ -35,9 +35,8 @@ function App() {
     // tabContent = selectedButton;
   }
   return (
-    <div>
+    <>
       <Header></Header>
-
       <div Style={"text-align:center;"}>
         <p>JSX is nothing but Javascript Syntax eXtension</p>
         <p>
@@ -125,7 +124,7 @@ function App() {
           )}*/}
         </section>
       </main>
-    </div>
+    </>
   );
 }
 
