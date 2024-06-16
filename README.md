@@ -23,3 +23,6 @@
 - JSX should return one signal element we can't return two sibling elements like two tags p, menu. because we can only return 1 value.
 - we can wrap those both inside a div tag but in inspect a new div tag shows.
 - we can use `Fragment` to avoid this extra div or we can also return empty tag as well like `<>JSX</>`.
+
+## Segregating react components
+- here by segregating what we did is we used useState in `Examples.jsx` by doing this only that part is reexecuted
